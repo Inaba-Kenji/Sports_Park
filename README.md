@@ -17,11 +17,8 @@
 　スポーツに参加したい時
 
 ## 設計書
-　#ER 図
 　　https://drive.google.com/file/d/1lzem5SCnIssOThGSBSrQ8fnSU-xg6gLz/view?usp=sharing
-　#データベース設計書
 　　https://docs.google.com/spreadsheets/d/1EWcplUbvTQyoUp9a-9s1HEIpgvgVZZx7BB8fMS6Wunw/edit?usp=sharing
-　#ワイヤーフレーム
 　　https://drive.google.com/file/d/16aW7SgZH2wYzv51K_40akgSsMEnAl8QU/view?usp=sharing
 
 ## 機能一覧
