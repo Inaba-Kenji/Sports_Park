@@ -1,0 +1,15 @@
+<header>
+  <h3 class="nav navbar-left logo">
+    <%= link_to "SportsPark", root_path %>
+  </h3>
+  <nav>
+    <ul class="nav nav-pills navbar-right">
+        <li>
+          <%= link_to " ログイン", new_user_session_path, class: "header_btn glyphicon glyphicon-log-in" %>
+        </li>
+        <li>
+          <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+        </li>
+    </ul>
+  </nav>
+</header>
