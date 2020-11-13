@@ -31,4 +31,4 @@ https://drive.google.com/file/d/16aW7SgZH2wYzv51K_40akgSsMEnAl8QU/view?usp=shari
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
-- - IDE ： Cloud9
+- IDE ：Cloud9
