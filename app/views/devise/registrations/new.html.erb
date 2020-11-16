@@ -7,6 +7,13 @@
 	      <div class="col-sm-4"></div>
     	</div>
 
+    	<div class="form-group">
+			<label class="col-sm-4 control-label" for="InputEmail">名前</label>
+			<div class="col-sm-4">
+				<%= f.text_field :name, autofocus: true, class: "name form-control" %>
+			</div>
+	    </div>
+
       <div class="form-group">
 	      <label class="col-sm-2 control-label" for="InputEmail">メールアドレス</label>
 	      <div class="col-sm-4">
@@ -14,18 +21,32 @@
 	      </div>
     	</div>
 
-    	<div class="form-group">
-    		<label class="col-sm-2 control-label" for="InputEmail">郵便番号（ハイフンなし）</label>
-    		<div class="col-sm-4">
-    			<%= f.text_field :postal_code, autofocus: true, class: "postal_code form-control" %>
-    		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="InputEmail">郵便番号（ハイフンなし）</label>
+			<div class="col-sm-4">
+				<%= f.text_field :postal_code, autofocus: true, class: "postal_code form-control" %>
+			</div>
+	    </div>
+
+      <div class="form-group">
+		<label class="col-sm-2 control-label" for="InputEmail">住所</label>
+		<div class="col-sm-10">
+			<%= f.text_field :address, autofocus: true, class: "address form-control" %>
+		</div>
   	  </div>
 
-    	<div class="form-group">
-    		<label class="col-sm-2 control-label" for="InputEmail">住所</label>
-    		<div class="col-sm-10">
-    			<%= f.text_field :address, autofocus: true, class: "address form-control" %>
-    		</div>
+  	  <div class="form-group">
+		<label class="col-sm-2 control-label" for="InputEmail">性別</label>
+		<div class="col-sm-10">
+			<%= f.select :gender, [ ["男","男"], ["女", "女"], ["その他", "その他"] ,["回答しない","回答しない" ]],prompt: "性別を選択してください", class: "gender form-control" %>
+		</div>
+  	  </div>
+
+  	  <div class="form-group">
+		<label class="col-sm-2 control-label" for="InputEmail">年齢</label>
+		<div class="col-sm-10">
+			<%= f.select :age, [ ["10代","10代"], ["20代", "20代"], ["30代", "30代"] ,["40代","40代" ], ["50代", "50代"], ["60代", "60代"],["70代", "70代"],["その他", "その他"],["回答しない", "回答しない"]],prompt: "年齢を選択してください", class: "age form-control" %>
+		</div>
   	  </div>
 
   	  <div class="form-group">

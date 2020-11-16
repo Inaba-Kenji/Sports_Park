@@ -1,0 +1,27 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>アイコン</th>
+      <th>名前</th>
+      <th>性別</th>
+      <th>年代</th>
+      <th>スポーツ</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= user.name %></td>
+        <td><%= user.gender %></td>
+        <td><%= user.age %></td>
+        <td><%= user.favorites_sports %></td>
+        <td>フォローする</td>
+        <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+        <td><%= link_to '削除', user_path(user), class: "user_#{user.id}", method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
