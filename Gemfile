@@ -79,3 +79,9 @@ gem 'pry-byebug'
 
 # ページネーション
 gem 'kaminari'
+
+#デバック
+gem 'pry-rails'
+
+#fontawesome
+gem 'font-awesome-rails'

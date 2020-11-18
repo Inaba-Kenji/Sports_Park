@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
   #デバイスが利用できるカラムの指定
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:postal_code,:address,:age,:gender])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email,:postal_code,:address,:age,:gender])
   end
 
   # sign_in後の遷移
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   # sign_out後の遷移
   def after_sign_out_path_for(resource_or_scope)
-    root_path
+    new_user_registration_path
   end
 
 end

@@ -14,6 +14,7 @@
  */
 
  @import "bootstrap";
+ @import "font-awesome";
 
 // 初期化
 
@@ -77,12 +78,9 @@ footer {
 
 
 // その他
-.row {
+
+.btn {
   margin-top: 20px;
   margin-bottom: 20px;
-  height:592px;
 }
-
-
-
 

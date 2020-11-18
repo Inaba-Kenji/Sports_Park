@@ -5,5 +5,14 @@ Rails.application.routes.draw do
   root 'homes#top'
 
   resources :recruitments
-  resources :users
+  resources :users, only: [:index, :show] do
+    collection do
+      get 'mypage_show'
+      get 'mypage_edit'
+      patch 'mypage_update'
+      get 'out'
+      patch 'quit'
+    end
+  end
+
 end

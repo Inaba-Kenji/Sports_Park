@@ -1,0 +1,78 @@
+
+<h2>マイページ</h2>
+
+<%= form_with model:current_user,url: mypage_update_users_path, local:true, method: :patch do  |f| %>
+
+  <div class="mx-auto" style="width: 200px;">
+    <%= f.file_field :profile_image_id %>
+  </div>
+  <p class="text-right">フォロー数：？？フォロワー数：？？</p>
+
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray" style="width: 200px;">
+          <strong class="d-block text-gray-dark">名前</strong>
+          <strong class="d-block text-gray-dark mx-auto row" style="width: 200px;"><%= f.text_field :name, autofocus: true, class: "name" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">メールアドレス</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.email_field :email, autofocus: true, class: "email" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">郵便番号(ハイフンなし）</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.text_field :postal_code, autofocus: true, class: "postal_code" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">住所</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.text_field :address, autofocus: true, class: "address" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">年齢</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.select :age, [ ["10代","10代"], ["20代", "20代"], ["30代", "30代"] ,["40代","40代" ], ["50代", "50代"], ["60代", "60代"],["70代", "70代"],["その他", "その他"],["回答しない", "回答しない"]],prompt: "年齢を選択してください", class: "age" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">性別</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.select :gender, [ ["男","男"], ["女", "女"], ["その他", "その他"] ,["回答しない","回答しない" ]],prompt: "性別を選択してください", class: "gender" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">スポーツ</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.select :favorites_sports, [ ["フットサル","フットサル"], ["野球", "野球"], ["サッカー", "サッカー"] ,["バスケ","バスケ" ] ,["テニス","テニス" ] ,["その他","その他" ]],prompt: "スポーツを選択してください", class: "favorites_sports" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125">
+          <strong class="d-block text-gray-dark">自己紹介</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.text_area :introduction, autofocus: true, class: "introduction" %></strong>
+        </p>
+      </div>
+    </div>
+
+  <div class="row">
+      <%= f.submit "編集を保存する",class: "btn btn-success  offset-md-3 col-md-2 " %>
+      <%= link_to "退会する", out_users_path, class: "btn btn-danger offset-md-1 col-md-2" %>
+  </div>
+
+<% end %>
+
+
