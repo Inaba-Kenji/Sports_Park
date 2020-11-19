@@ -85,3 +85,4 @@ gem 'pry-rails'
 
 #fontawesome
 gem 'font-awesome-rails'
+

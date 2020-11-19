@@ -2,7 +2,7 @@
 
 <h2>マイページ</h2>
 <div class="mx-auto" style="width: 200px;">
-  <%= attachment_image_tag(current_user, :profile_image, :fill, 200, 200, fallback: "no-image-icon.jpg") %>
+  <%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
 </div>
 <p class="text-right">フォロー数：？？フォロワー数：？？</p>
 
@@ -67,7 +67,7 @@
   </div>
 
   <div class="mx-auto" style="width: 200px;">
-    <%= link_to "編集する", mypage_edit_users_path, class: "btn btn-success" %>
+    <%= link_to "編集する", mypage_edit_user_path, class: "btn btn-success" %>
   </div>
 
 

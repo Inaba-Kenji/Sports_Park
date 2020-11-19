@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :recruitments
   resources :users, only: [:index, :show] do
-    collection do
+    member do
       get 'mypage_show'
       get 'mypage_edit'
       patch 'mypage_update'

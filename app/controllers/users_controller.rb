@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 
   #マイページの編集の保存
   def mypage_update
-    if current_customer.update(user_params)
-      redirect_to mypage_show_users_path
+    if current_user.update(user_params)
+      redirect_to mypage_show_user_path
     else
       render "mypage_edit"
     end
@@ -38,9 +38,8 @@ class UsersController < ApplicationController
   private
 
    def user_params
-      params.require(:user).permit(:name, :email, :postal_code, :address, :gender, :age, :favorites_sports, :introduction)
+      params.require(:user).permit(:profile_image, :name, :email, :postal_code, :address, :gender, :age, :favorites_sports, :introduction)
    end
-
 
 
 end
