@@ -49,23 +49,20 @@
         </p>
       </div>
 
-      <div class="row">
-        <%= link_to 'メッセージ画面へ', edit_recruitment_path(@recruitment), class: "btn btn-warning  offset-md-5 col-md-2"%>
-      </div>
-
       <!--DM機能-->
       <% if @userId == current_user.id %>
 
       <% else %>
         <% if @isRoom == true %>
-        <%= link_to 'チャットへ', edit_recruitment_path(@recruitment), class: "btn btn-warning  offset-md-5 col-md-2"%>
-          <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+        <div class="row">
+          <%= link_to 'メッセージ画面へ', room_path(@roomId), class: "btn btn-warning  offset-md-5 col-md-2"%>
+        </div>
         <% else %>
           <%= form_for @room do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, :value=> @userId %>
             <% end %>
-            <%= f.submit "チャットを始める" %>
+            <%= f.submit "メッセージ画面へ", class:"btn btn-warning  offset-md-5 col-md-2" %>
           <% end %>
         <% end %>
       <% end %>
