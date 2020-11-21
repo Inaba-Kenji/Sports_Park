@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  has_many :recruitments
+  has_many :recruitments, dependent: :destroy
 
 
 end

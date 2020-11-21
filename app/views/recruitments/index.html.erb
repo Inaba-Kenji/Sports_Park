@@ -19,6 +19,10 @@
             <strong class="d-block text-gray-dark">値段</strong>
             <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= recruitment.price %></strong>
             <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to "詳細", recruitment_path(recruitment), class: "d-block text-gray-dark mx-auto" %></strong>
+            <% if recruitment.user.id == current_user.id %>
+              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to '削除', recruitment_path(recruitment), class: "destroy", method: :delete %></strong>
+              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to '編集', edit_recruitment_path(recruitment), class: "edit"%></strong>
+            <% end %>
           </p>
         </div>
       <% end %>
@@ -28,6 +32,6 @@
       </small>
     </div>
 
-    <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-danger offset-md-5 col-md-2" %>
+    <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-success offset-md-5 col-md-2" %>
 
 </main>

@@ -1,21 +1,54 @@
-<header>
-  <h3 class="nav navbar-left logo">
-    <%= link_to "SportsPark", root_path %>
-  </h3>
-  <nav>
-    <ul class="nav nav-pills navbar-right">
-        <li>
-          <%= link_to " ログイン", new_user_session_path, class: "header_btn glyphicon glyphicon-log-in" %>
+
+<div>
+  <h1 class="text-center">SportsPark</h1>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">SportsPark</a>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "募集一覧", recruitments_path, class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+        <li class="nav-item">
+          <%= link_to "Users", users_path, class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to " ユーザー一覧", users_path, class: "header_btn glyphicon glyphicon-log-in" %>
+        <li class="nav-item">
+          <%= link_to " メッセージ一覧", users_path, class: "nav-link" %>
         </li>
-        <li>
-          <%= link_to " マイページ", mypage_show_user_path(current_user), class: "header_btn glyphicon glyphicon-log-in" %>
+        <li class="nav-item">
+          <%= link_to " Mypage", mypage_show_user_path(current_user), class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item text-light">
+          <%= link_to "Top", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item text-light">
+          <%= link_to "About", home_about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item text-light">
+          <%= link_to " Sign_Up", new_user_registration_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item text-light">
+          <%= link_to " Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
-  </nav>
-</header>
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+  </div>
+</nav>
+
+

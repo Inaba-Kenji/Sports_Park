@@ -9,6 +9,7 @@ class RecruitmentsController < ApplicationController
   end
 
   def show
+    @recruitment = Recruitment.find(params[:id])
   end
 
   def create
@@ -16,6 +17,25 @@ class RecruitmentsController < ApplicationController
     @recruitment.user_id = current_user.id
     @recruitment.save
     redirect_to recruitments_path
+  end
+
+  def destroy
+    recruitment = Recruitment.find(params[:id])
+    recruitment.destroy
+    redirect_to recruitments_path
+  end
+
+  def edit
+    @recruitment = Recruitment.find(params[:id])
+  end
+
+  def update
+    @recruitment = Recruitment.find(params[:id])
+    if @recruitment.update(recruitment_params)
+      redirect_to recruitments_path
+    else
+      render :edit
+    end
   end
 
   private
