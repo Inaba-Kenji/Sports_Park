@@ -10,6 +10,32 @@ class RecruitmentsController < ApplicationController
 
   def show
     @recruitment = Recruitment.find(params[:id])
+
+    # DM機能
+    @userId = @recruitment.user.id
+    #自分が参加しているメッセージルーム情報を取得する
+    @currentUserEntry = Entry.where(user_id: current_user.id)
+    #選択したユーザのメッセージルーム情報を取得する
+    @userEntry = Entry.where(user_id: @userId)
+
+    #current_userと選択したユーザ間に共通のメッセージルームが存在すればフラグを立てる
+    unless @userId == current_user.id
+      @currentUserEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+      #無ければ作る
+      unless @isRoom
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
+
+
   end
 
   def create
@@ -37,6 +63,7 @@ class RecruitmentsController < ApplicationController
       render :edit
     end
   end
+
 
   private
 
