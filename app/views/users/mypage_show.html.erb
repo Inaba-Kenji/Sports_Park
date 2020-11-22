@@ -1,6 +1,4 @@
 
-
-<h2>マイページ</h2>
 <div class="mx-auto" style="width: 200px;">
   <%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, class:"bd-placeholder-img mr-2 rounded", fallback: "no-image-icon.jpg") %>
 </div>
@@ -53,7 +51,7 @@
     <div class="media text-muted pt-3">
       <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
       <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <strong class="d-block text-gray-dark">スポーツ</strong>
+        <strong class="d-block text-gray-dark">好きなスポーツ</strong>
         <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= current_user.favorites_sports %></strong>
       </p>
     </div>
@@ -66,8 +64,8 @@
     </div>
   </div>
 
-  <div class="mx-auto" style="width: 200px;">
-    <%= link_to "編集する", mypage_edit_user_path, class: "btn btn-success" %>
+  <div>
+    <%= link_to "編集する", mypage_edit_user_path, class: "btn btn-success offset-md-5 col-md-2" %>
   </div>
 
 

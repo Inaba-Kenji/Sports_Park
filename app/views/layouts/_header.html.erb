@@ -4,7 +4,7 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">SportsPark</a>
+  <span class="navbar-brand">SportsPark</span>
 
   </button>
 
@@ -14,30 +14,30 @@
         <li class="nav-item active">
           <%= link_to "募集一覧", recruitments_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Users", users_path, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "ユーザー一覧", users_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to " メッセージ一覧", users_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to " Mypage", mypage_show_user_path(current_user), class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to " マイページ", mypage_show_user_path(current_user), class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <li class="nav-item active">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
       <% else %>
-        <li class="nav-item text-light">
-          <%= link_to "Top", root_path, class: "nav-link" %>
+        <li class="nav-item text-light active">
+          <%= link_to "トップページへ", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item text-light">
-          <%= link_to "About", home_about_path, class: "nav-link" %>
+        <li class="nav-item text-light active">
+          <%= link_to "sports_parkとは", home_about_path, class: "nav-link" %>
         </li>
-        <li class="nav-item text-light">
-          <%= link_to " Sign_Up", new_user_registration_path, class: "nav-link" %>
+        <li class="nav-item text-light active">
+          <%= link_to " 新規登録", new_user_registration_path, class: "nav-link" %>
         </li>
-        <li class="nav-item text-light">
-          <%= link_to " Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item text-light active">
+          <%= link_to " ログイン", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

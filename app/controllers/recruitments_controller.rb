@@ -61,11 +61,17 @@ class RecruitmentsController < ApplicationController
     end
   end
 
+  def search
+    place_area_ids = Recruitment.where("place_area LIKE (?)", "#{params[:place_area]}").pluck(:id)
+    sports_genre_ids = Recruitment.where("sports_genre LIKE (?)", "#{params[:sports_genre]}").pluck(:id)
+    @result_searched = Recruitment.where("id IN (?) or id IN (?)", place_area_ids, sports_genre_ids)
+  end
+
 
   private
 
   def recruitment_params
-    params.require(:recruitment).permit(:title, :event_date, :place, :price, :recruitment_introduction)
+    params.require(:recruitment).permit(:title, :event_date, :place, :price, :recruitment_introduction, :place_area, :sports_genre)
   end
 
 

@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   root 'homes#top'
 
-  resources :recruitments
+
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
+  resources :recruitments do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: [:index, :show] do
     member do
       get 'mypage_show'

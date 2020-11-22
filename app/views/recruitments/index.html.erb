@@ -1,7 +1,11 @@
-<h1>募集サイト一覧</h1>
+<%= form_tag(search_recruitments_path, method: "get" ,class:'text-center') do %>
+ <%= select_tag "place_area",options_for_select([["北海道","北海道"], ["青森", "青森"], ["岩手", "岩手"] ,["宮城","宮城" ], ["秋田", "秋田"], ["山形", "山形"],["福島", "福島"],["茨城", "茨城"],["栃木", "栃木"],["群馬", "群馬"],["埼玉", "埼玉"],["千葉", "千葉"],["東京", "東京"],["神奈川", "神奈川"],["新潟", "新潟"],["富山", "富山"],["石川", "石川"],["福井", "福井"],["山梨", "山梨"],["長野", "長野"],["岐阜", "岐阜"],["静岡", "静岡"],["愛知", "愛知"],["三重", "三重"],["滋賀", "滋賀"],["京都", "京都"],["大阪", "大阪"],["兵庫", "兵庫"],["奈良", "奈良"],["和歌山", "和歌山"],["鳥取", "鳥取"],["島根", "島根"],["岡山", "岡山"],["広島", "広島"],["山口", "山口"],["徳島", "徳島"],["香川", "香川"],["愛媛", "愛媛"],["高知", "高知"],["福岡", "福岡"],["佐賀", "佐賀"],["長崎", "長崎"],["熊本", "熊本"],["大分", "大分"],["宮崎", "宮崎"],["鹿児島", "鹿児島"],["沖縄", "沖縄"]]) %>
+ <%= select_tag "sports_genre", options_for_select([["フットサル", "フットサル"], ["野球", "野球"] ,["バスケ","バスケ" ], ["テニス", "テニス"]]) %>
+ <%= submit_tag "検索" %>
+<% end %>
+
 
 <main role="main" class="container">
-
     <div class="my-3 p-3 bg-white rounded shadow-sm">
       <h6 class="border-bottom border-gray pb-2 mb-0">募集一覧</h6>
       <% @recruitments.each do |recruitment| %>
@@ -18,20 +22,23 @@
             <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= recruitment.place %></strong>
             <strong class="d-block text-gray-dark">値段</strong>
             <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= recruitment.price %></strong>
-            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to "詳細", recruitment_path(recruitment), class: "d-block text-gray-dark mx-auto" %></strong>
             <% if recruitment.user.id == current_user.id %>
-              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to '削除', recruitment_path(recruitment), class: "destroy", method: :delete %></strong>
-              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to '編集', edit_recruitment_path(recruitment), class: "edit"%></strong>
+              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
+                <%= link_to "詳細", recruitment_path(recruitment), class: "show" %>
+                <%= link_to '編集', edit_recruitment_path(recruitment), class: "edit text-success"%>
+                <%= link_to '削除', recruitment_path(recruitment), class: "destroy text-danger", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+              </strong>
+            <% else %>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
+              <%= link_to "詳細", recruitment_path(recruitment), class: "show" %>
+            </strong>
             <% end %>
           </p>
         </div>
       <% end %>
-
       <small class="d-block text-right mt-3">
         <a href="#">All updates</a>
       </small>
     </div>
-
     <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-success offset-md-5 col-md-2" %>
-
 </main>

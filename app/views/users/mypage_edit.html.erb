@@ -1,5 +1,4 @@
 
-<h2>マイページ編集</h2>
 
 <%= form_with model:current_user,url: mypage_update_user_path, local:true, method: :patch do  |f| %>
 
@@ -55,8 +54,8 @@
       <div class="media text-muted pt-3">
         <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark">スポーツ</strong>
-          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.select :favorites_sports, [ ["フットサル","フットサル"], ["野球", "野球"], ["サッカー", "サッカー"] ,["バスケ","バスケ" ] ,["テニス","テニス" ] ,["その他","その他" ]],prompt: "スポーツを選択してください", class: "favorites_sports" %></strong>
+          <strong class="d-block text-gray-dark">好きなスポーツ</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= f.select :favorites_sports, [ ["フットサル","フットサル"], ["野球", "野球"],["バスケ","バスケ" ] ,["テニス","テニス" ]],prompt: "スポーツを選択してください", class: "favorites_sports" %></strong>
         </p>
       </div>
       <div class="media text-muted pt-3">
@@ -69,7 +68,7 @@
     </div>
 
   <div class="row">
-      <%= f.submit "編集を保存する",class: "btn btn-success  offset-md-3 col-md-2 " %>
+      <%= f.submit "保存する",class: "btn btn-primary  offset-md-3 col-md-2 " %>
       <%= link_to "退会する", out_user_path, class: "btn btn-danger offset-md-1 col-md-2" %>
   </div>
 
