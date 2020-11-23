@@ -14,7 +14,7 @@
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
           <strong class="d-block text-gray-dark">募集者</strong>
           <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
-            <%= attachment_image_tag(@recruitment.user, :profile_image, :fill, 50, 50, class:"bd-placeholder-img mr-2 rounded", fallback: "no-image-icon.jpg") %>
+            <%= attachment_image_tag(@recruitment.user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg") %>
             <%= @recruitment.user.name %>
           </strong>
         </p>

@@ -3,7 +3,7 @@
 <%= form_with model:current_user,url: mypage_update_user_path, local:true, method: :patch do  |f| %>
 
   <div class="mx-auto" style="width: 200px;">
-    <%= f.attachment_field :profile_image %>
+    <%= f.attachment_field :profile_image, class: "rounded-circle" %>
   </div>
   <p class="text-right">フォロー数：？？フォロワー数：？？</p>
 

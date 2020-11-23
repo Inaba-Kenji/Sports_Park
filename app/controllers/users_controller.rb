@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   #ユーザーの詳細
   def show
     @user = User.find(params[:id])
+    @following_users = @user.following
+    @followers_users = @user.followers
   end
 
   #マイページの詳細

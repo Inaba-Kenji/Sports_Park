@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_074222) do
+ActiveRecord::Schema.define(version: 2020_11_23_031844) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2020_11_22_074222) do
     t.integer "user_id"
     t.string "place_area"
     t.string "sports_genre"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
   end
 
   create_table "rooms", force: :cascade do |t|

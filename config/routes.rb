@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   root 'homes#top'
 
-
+  resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
   resources :recruitments do
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       patch 'mypage_update'
       get 'out'
       patch 'quit'
+      get 'following'
+      get 'followers'
     end
   end
 

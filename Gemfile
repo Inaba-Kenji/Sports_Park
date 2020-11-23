@@ -86,3 +86,6 @@ gem 'pry-rails'
 #fontawesome
 gem 'font-awesome-rails'
 
+#jQueryの使用
+gem 'jquery-rails'
+

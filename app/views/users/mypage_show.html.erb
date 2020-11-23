@@ -1,8 +1,8 @@
 
 <div class="mx-auto" style="width: 200px;">
-  <%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, class:"bd-placeholder-img mr-2 rounded", fallback: "no-image-icon.jpg") %>
+  <%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no-image-icon.jpg") %>
 </div>
-<p class="text-right">フォロー数：？？フォロワー数：？？</p>
+<p class="text-right">フォロー数：<%= current_user.following.count %> フォロワー数：<%= current_user.followers.count %></p>
 
 <div class="my-3 p-3 bg-white rounded shadow-sm">
     <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
