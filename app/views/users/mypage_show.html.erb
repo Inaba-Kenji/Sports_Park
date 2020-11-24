@@ -1,11 +1,17 @@
 
 <div class="mx-auto" style="width: 200px;">
-  <%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no-image-icon.jpg") %>
+
 </div>
-<p class="text-right">フォロー数：<%= current_user.following.count %> フォロワー数：<%= current_user.followers.count %></p>
+<p class="text-right"></p>
 
 <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark text-right">フォロー数：<%= current_user.following.count %> フォロワー数：<%= current_user.followers.count %></strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= attachment_image_tag(current_user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no-image-icon.jpg") %></strong>
+      </p>
+    </div>
     <div class="media text-muted pt-3">
       <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
       <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">

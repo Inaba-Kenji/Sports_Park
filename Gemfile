@@ -89,3 +89,5 @@ gem 'font-awesome-rails'
 #jQueryの使用
 gem 'jquery-rails'
 
+# Font Awesomeの使用
+gem 'font-awesome-sass', '~> 5.4.1'

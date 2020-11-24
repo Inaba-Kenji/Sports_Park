@@ -33,6 +33,7 @@
               <%= link_to "詳細", recruitment_path(recruitment), class: "show" %>
             </strong>
             <% end %>
+            <%= render 'like_form', recruitment: recruitment %>
           </p>
         </div>
       <% end %>

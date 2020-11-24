@@ -2,13 +2,15 @@
 
 <%= form_with model:current_user,url: mypage_update_user_path, local:true, method: :patch do  |f| %>
 
-  <div class="mx-auto" style="width: 200px;">
-    <%= f.attachment_field :profile_image, class: "rounded-circle" %>
-  </div>
-  <p class="text-right">フォロー数：？？フォロワー数：？？</p>
-
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-      <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray" style="width: 200px;">
+          <strong class="d-block text-gray-dark">アイコン</strong>
+          <strong class="d-block text-gray-dark mx-auto row" style="width: 200px;"><%= f.attachment_field :profile_image, class: "rounded-circle" %></strong>
+        </p>
+      </div>
       <div class="media text-muted pt-3">
         <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray" style="width: 200px;">

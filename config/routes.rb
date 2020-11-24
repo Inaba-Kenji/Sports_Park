@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get 'maps/index'
   devise_for :users
 
   get 'home/about' => 'homes#about'
   root 'homes#top'
 
+  resources :maps, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+  resources :likes, only: [:create, :destroy]
   end
   resources :users, only: [:index, :show] do
     member do
@@ -23,5 +26,4 @@ Rails.application.routes.draw do
       get 'followers'
     end
   end
-
 end

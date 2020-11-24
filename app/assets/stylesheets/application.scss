@@ -11,10 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
  */
 
  @import "bootstrap";
+ @import "font-awesome-sprockets";
  @import "font-awesome";
+
 
 // 初期化
 
@@ -53,5 +56,14 @@ footer {
 .btn {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+
+.like {
+  color: gray;
+}
+
+.unlike {
+  color: red;
 }
 
