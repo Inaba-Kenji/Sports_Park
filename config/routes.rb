@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'maps/index'
   devise_for :users
-
-  get 'home/about' => 'homes#about'
   root 'homes#top'
+
+  get 'maps/index'
+  get 'home/about' => 'homes#about'
 
   resources :maps, only: [:index]
   resources :relationships, only: [:create, :destroy]

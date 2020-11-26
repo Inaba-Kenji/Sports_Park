@@ -15,10 +15,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-// ブートストラップ導入のため追記
-//= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-
 
 

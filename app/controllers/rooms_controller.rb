@@ -19,4 +19,9 @@ class RoomsController < ApplicationController
         end
     end
 
+    def index
+      @rooms = current_user.rooms
+      message = @rooms.messages.order(updated_at: :desc).limit(1)
+    end
+
 end
