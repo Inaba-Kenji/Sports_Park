@@ -54,14 +54,14 @@
       <% else %>
         <% if @isRoom == true %>
         <div class="row">
-          <%= link_to 'メッセージ画面へ', room_path(@roomId), class: "btn btn-warning  offset-md-5 col-md-2"%>
+          <%= link_to 'チャット画面へ', room_path(@roomId), class: "btn btn-warning  offset-md-5 col-md-2"%>
         </div>
         <% else %>
           <%= form_for @room do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, :value=> @userId %>
             <% end %>
-            <%= f.submit "メッセージ画面へ", class:"btn btn-warning  offset-md-5 col-md-2" %>
+            <%= f.submit "チャット画面へ", class:"btn btn-warning  offset-md-5 col-md-2" %>
           <% end %>
         <% end %>
       <% end %>

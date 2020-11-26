@@ -20,8 +20,12 @@ class RoomsController < ApplicationController
     end
 
     def index
-      @rooms = current_user.rooms
-      message = @rooms.messages.order(updated_at: :desc).limit(1)
+        @currentEntries = current_user.entries
+        myRoomIds = []
+        @currentEntries.each do | entry |
+          myRoomIds << entry.room.id
+        end
+        @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?', current_user.id)
     end
 
 end

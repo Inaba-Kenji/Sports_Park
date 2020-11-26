@@ -1,4 +1,3 @@
-<h1>トーク履歴</h1>
 
 <table class='table'>
   <thead>
@@ -8,22 +7,27 @@
       <th>性別</th>
       <th>年代</th>
       <th>スポーツ</th>
+      <th>最新のトーク履歴</th>
+      <th>チャットへ</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @rooms.each do |room| %>
+    <% @anotherEntries.each do |anotherEntry| %>
       <tr>
-        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg" %></td>
-        <td><%= user.name %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.age %></td>
-        <td><%= user.favorites_sports %></td>
-        <td><%= render 'follow_form', user: user %></td>
-        <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+        <td><%= attachment_image_tag Message.find_by(id: anotherEntry.room.message_ids.last).user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg" %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.name %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.gender %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.age %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.favorites_sports %></td>
+        <td><%= "#{Message.find_by(id: anotherEntry.room.message_ids.last).content}".truncate(10, separator: /\s/) %></td>
+        <td><%= link_to 'チャットへ', room_path(Message.find_by(id: anotherEntry.room.message_ids.last).room_id), class: "fa fa-commenting" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
+
 
 
