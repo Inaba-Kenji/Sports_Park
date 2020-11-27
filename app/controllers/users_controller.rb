@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   #ユーザーの一覧
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(6)
   end
 
   #ユーザーの詳細

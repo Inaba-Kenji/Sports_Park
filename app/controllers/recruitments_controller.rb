@@ -5,7 +5,7 @@ class RecruitmentsController < ApplicationController
   end
 
   def index
-    @recruitments = Recruitment.all
+    @recruitments = Recruitment.all.page(params[:page]).per(6)
   end
 
   def show
@@ -64,11 +64,11 @@ class RecruitmentsController < ApplicationController
   def search
     place_area_ids = Recruitment.where("place_area LIKE (?)", "#{params[:place_area]}").pluck(:id)
     sports_genre_ids = Recruitment.where("sports_genre LIKE (?)", "#{params[:sports_genre]}").pluck(:id)
-    @result_searched = Recruitment.where("id IN (?) or id IN (?)", place_area_ids, sports_genre_ids)
+    @result_searched = Recruitment.where("id IN (?) or id IN (?)", place_area_ids, sports_genre_ids).page(params[:page]).per(6)
   end
 
   def text_search
-    @recruitments = Recruitment.all.search(params[:search])
+    @recruitments = Recruitment.all.search(params[:search]).page(params[:page]).per(5)
   end
 
 

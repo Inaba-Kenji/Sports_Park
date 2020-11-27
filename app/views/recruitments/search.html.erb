@@ -1,4 +1,5 @@
 
+
 <main role="main" class="container">
     <div class="my-3 p-3 bg-white rounded shadow-sm">
       <h6 class="border-bottom border-gray pb-2 mb-0">募集一覧</h6>
@@ -31,7 +32,7 @@
         </div>
       <% end %>
       <small class="d-block text-right mt-3">
-        <a href="#">All updates</a>
+        <%= paginate @result_searched %>
       </small>
     </div>
     <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-success offset-md-5 col-md-2" %>

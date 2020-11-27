@@ -37,8 +37,8 @@
           </p>
         </div>
       <% end %>
-      <small class="d-block text-right mt-3">
-        <a href="#">All updates</a>
+      <small class="d-block mt-3">
+        <%= paginate @recruitments %>
       </small>
     </div>
     <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-success offset-md-5 col-md-2" %>
