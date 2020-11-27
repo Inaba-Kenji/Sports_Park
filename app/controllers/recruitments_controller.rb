@@ -67,6 +67,10 @@ class RecruitmentsController < ApplicationController
     @result_searched = Recruitment.where("id IN (?) or id IN (?)", place_area_ids, sports_genre_ids)
   end
 
+  def text_search
+    @recruitments = Recruitment.all.search(params[:search])
+  end
+
 
   private
 

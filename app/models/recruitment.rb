@@ -8,4 +8,8 @@ class Recruitment < ApplicationRecord
     Like.find_by(user_id: user.id, recruitment_id: id)
   end
 
+  def self.search(search)
+    search ? where('title LIKE ?', "%#{search}%") : all
+  end
+
 end

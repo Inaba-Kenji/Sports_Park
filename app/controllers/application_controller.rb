@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # sign_in後の遷移
   def after_sign_in_path_for(resource_or_scope)
-    root_path
+    recruitments_path
   end
 
   # sign_out後の遷移

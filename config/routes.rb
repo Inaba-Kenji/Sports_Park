@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :recruitments do
     collection do
       get 'search'
+      get 'text_search'
     end
   resources :likes, only: [:create, :destroy]
   end

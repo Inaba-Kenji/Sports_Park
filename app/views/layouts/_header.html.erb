@@ -24,25 +24,27 @@
         </li>
       <% else %>
         <li class="nav-item text-light active">
-          <%= link_to "トップページへ", root_path, class: "nav-link fa fa-home " %>
+          <%= link_to "Home", root_path, class: "nav-link fa fa-home " %>
         </li>
         <li class="nav-item text-light active">
           <%= link_to "About", home_about_path, class: "nav-link fa fa-book" %>
         </li>
         <li class="nav-item text-light active">
-          <%= link_to " 新規登録", new_user_registration_path, class: "nav-link fa fa-pencil" %>
+          <%= link_to " Sign_Up", new_user_registration_path, class: "nav-link fa fa-pencil" %>
         </li>
         <li class="nav-item text-light active">
-          <%= link_to " ログイン", new_user_session_path, class: "nav-link fa fa-sign-in" %>
+          <%= link_to " Login", new_user_session_path, class: "nav-link fa fa-sign-in" %>
         </li>
       <% end %>
     </ul>
 
 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <% if user_signed_in? %>
+      <%= form_tag(text_search_recruitments_path, method: :get) do %>
+        <%= text_field_tag :search, '' , placeholder: "募集情報のタイトル"	 %>
+        <%= submit_tag '検索', name: nil%>
+      <% end %>
+    <% end %>
 
   </div>
 </nav>
