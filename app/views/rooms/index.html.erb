@@ -1,0 +1,34 @@
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>アイコン</th>
+      <th>名前</th>
+      <th>性別</th>
+      <th>年代</th>
+      <th>スポーツ</th>
+      <th>最新のトーク履歴</th>
+      <th>チャットへ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @anotherEntries.each do |anotherEntry| %>
+      <tr>
+        <td><%= attachment_image_tag Message.find_by(id: anotherEntry.room.message_ids.last).user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg" %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.name %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.gender %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.age %></td>
+        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.favorites_sports %></td>
+        <td><%= "#{Message.find_by(id: anotherEntry.room.message_ids.last).content}".truncate(10, separator: /\s/) %></td>
+        <td><%= link_to 'チャットへ', room_path(Message.find_by(id: anotherEntry.room.message_ids.last).room_id), class: "fa fa-commenting" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @anotherEntries %>
+
+
+
+
+

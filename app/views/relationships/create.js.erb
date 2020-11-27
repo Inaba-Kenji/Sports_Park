@@ -1,0 +1,4 @@
+
+$('.follow_form'+<%= @user.id %>).html("<%= j(render partial: 'users/unfollow', locals: {user: @user} ) %>");
+
+

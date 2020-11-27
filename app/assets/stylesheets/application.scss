@@ -11,9 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
  */
 
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
 
 // 初期化
 
@@ -23,65 +27,95 @@
     box-sizing: border-box;
 }
 
-
-// ヘッダー
-
-#header {
-    padding: 30px 25px 10px;
-    border-bottom: 1px solid;
-    top: 0;
-    width: 100%;
-    background-color: #FFF4E0;
-}
-
-.logo {
-    padding: 1%;
-    margin: 0;
-    border: double 2px #323232;
-    margin-bottom: 15px;
-    margin-left: 30px;
-    font-family: fantasy;
-    background-color: #FFC679;
-}
-
-.header_btn:hover {
-    background-color: #CCFFFF;
-    color: #FF0000;
-    border-radius: 5px;
-}
-
-.header-name {
-    padding-right: 40px;
-    padding-bottom: 10px;
-    font-weight: bold;
-}
-
-// フッダー
-
-footer {
-    width: 100%;
-    background-color: #EFEFEF;
-    text-align: center;
-    margin-top: auto;
+.container{
+  height: 100%;
 }
 
 
-.footer-menu {
-    height: 100px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    font-family: Hiragino Maru Gothic ProN W4;
-}
 
-
-// その他
-.row {
+// ボタン
+.btn {
   margin-top: 20px;
   margin-bottom: 20px;
-  height:592px;
 }
+
+
+// いいね機能
+
+.like {
+  color: gray;
+}
+
+.unlike {
+  color: red;
+}
+
+
+// aboutページ
+.slide-img {
+  background-size: cover;
+}
+
+#carouselExampleInterval {
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+
+
+.carousel-item {
+  position: relative;
+}
+
+.about-message {
+    position: absolute;
+    z-index: 10;
+    transform: translate(calc(50vw - 50%),calc(50vh - 50%));
+}
+
+
+// topページ
+.video-content {
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+
+
+.top {
+  position: relative;
+
+}
+
+.top-message {
+    position: absolute;
+    z-index: 10;
+    transform: translate(calc(50vw - 50%),calc(50vh - 50%));
+}
+
+.current_user {
+    color: black;
+    background-color: #E0FFFF;
+    width: fit-content;
+    margin: 10px 0 0 auto;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.visited_user {
+    color: black;
+    background-color: #E0FFFF;
+    width: fit-content;
+    margin: 10px auto 0 0;
+    border-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+
+
+
+
 
 
 

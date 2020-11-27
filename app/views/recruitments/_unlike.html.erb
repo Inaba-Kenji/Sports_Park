@@ -1,0 +1,5 @@
+<%= link_to(recruitment_like_path(recruitment.id, recruitment.liked_by(current_user)), method: :DELETE, remote: true, class: "unlike") do %>
+  <i class="fa fa-heart" aria-hidden="true"></i>いいね数：<%= recruitment.likes.count %>
+<% end %>
+
+

@@ -1,0 +1,45 @@
+
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark text-right">フォロー数：<%= @user.following.count %> フォロワー数：<%= @user.followers.count %></strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no-image-icon.jpg") %></strong>
+      </p>
+    </div>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">名前</strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @user.name %></strong>
+      </p>
+    </div>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">年齢</strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @user.gender %></strong>
+      </p>
+    </div>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">性別</strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @user.age %></strong>
+      </p>
+    </div>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong class="d-block text-gray-dark">好きなスポーツ</strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @user.favorites_sports %></strong>
+      </p>
+    </div>
+    <div class="media text-muted pt-3">
+      <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+      <p class="media-body pb-3 mb-0 small lh-125">
+        <strong class="d-block text-gray-dark">自己紹介</strong>
+        <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @user.introduction %></strong>
+      </p>
+    </div>
+  </div>

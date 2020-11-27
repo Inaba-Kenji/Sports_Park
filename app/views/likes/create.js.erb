@@ -1,0 +1,2 @@
+$('#<%= @recruitment.id.to_s %>').html('<%= j(render partial: 'recruitments/unlike', locals: {recruitment: @recruitment} )%>');
+

@@ -1,0 +1,11 @@
+
+<% if user_signed_in? && user != current_user %>
+  <div class = <%="follow_form" + user.id.to_s %>>
+    <% if current_user.following?(user) %>
+      <%= render "unfollow", user: user %>
+    <% else %>
+      <%= render "follow", user: user %>
+    <% end %>
+  </div>
+<% end %>
+

@@ -1,0 +1,9 @@
+
+      <strong id="<%= recruitment.id.to_s %>" class="float-right" >
+        <% if recruitment.liked_by(current_user).present? %>
+          <%= render "unlike", recruitment: recruitment %>
+        <% else %>
+          <%= render "like", recruitment: recruitment %>
+        <% end %>
+      </strong>
+

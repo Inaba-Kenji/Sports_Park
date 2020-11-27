@@ -1,0 +1,71 @@
+
+
+  <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0"></h6>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray" style="width: 200px;">
+          <strong class="d-block text-gray-dark">タイトル</strong>
+          <strong class="d-block text-gray-dark mx-auto row" style="width: 200px;"><%= @recruitment.title %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">募集者</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
+            <%= attachment_image_tag(@recruitment.user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg") %>
+            <%= @recruitment.user.name %>
+          </strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">開催日</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @recruitment.event_date %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">場所</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @recruitment.place %></strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= link_to '地図検索へ', maps_index_path, class: "Googlemap" %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">値段</strong>
+          <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= @recruitment.price %></strong>
+        </p>
+      </div>
+      <div class="media text-muted pt-3">
+        <img data-src="holder.js/32x32?theme=thumb&amp;bg=e83e8c&amp;fg=e83e8c&amp;size=1" alt="" class="mr-2 rounded">
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark">本文</strong>
+          <strong class="d-block text-gray-dark mx-auto recruitment_introduction" style="width: 200px;"><%= @recruitment.recruitment_introduction %></strong>
+        </p>
+      </div>
+
+      <!--DM機能-->
+      <% if @userId == current_user.id %>
+
+      <% else %>
+        <% if @isRoom == true %>
+        <div class="row">
+          <%= link_to 'チャット画面へ', room_path(@roomId), class: "btn btn-warning  offset-md-5 col-md-2"%>
+        </div>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, :value=> @userId %>
+            <% end %>
+            <%= f.submit "チャット画面へ", class:"btn btn-warning  offset-md-5 col-md-2" %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+

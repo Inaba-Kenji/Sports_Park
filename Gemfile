@@ -80,6 +80,28 @@ gem 'pry-byebug'
 # ページネーション
 gem 'kaminari'
 
+
+#デバック
+gem 'pry-rails'
+
+#fontawesome
+gem 'font-awesome-rails'
+
+#jQueryの使用
+gem 'jquery-rails'
+
+# Font Awesomeの使用
+gem 'font-awesome-sass', '~> 5.4.1'
+
+# ページネーション
+gem 'kaminari'
+
+# Google Mapの緯度・経度
+gem 'geocoder'
+
+# gitにapiがpushされないように
+gem 'dotenv-rails'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

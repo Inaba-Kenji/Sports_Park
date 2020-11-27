@@ -1,0 +1,39 @@
+
+
+<main role="main" class="container">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">募集一覧</h6>
+      <% @result_searched.each do |result_searched| %>
+        <div class="media text-muted pt-3">
+          <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <%= attachment_image_tag(result_searched.user, :profile_image, :fill, 32, 32, class: "rounded-circle", fallback: "no-image-icon.jpg") %>
+          </svg>
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">タイトル</strong>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= result_searched.title %></strong>
+            <strong class="d-block text-gray-dark">開催日</strong>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= result_searched.event_date %></strong>
+            <strong class="d-block text-gray-dark">開催場所</strong>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= result_searched.place %></strong>
+            <strong class="d-block text-gray-dark">値段</strong>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;"><%= result_searched.price %></strong>
+            <% if result_searched.user.id == current_user.id %>
+              <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
+                <%= link_to "詳細", recruitment_path(result_searched), class: "show" %>
+                <%= link_to '編集', edit_recruitment_path(result_searched), class: "edit text-success"%>
+                <%= link_to '削除', recruitment_path(result_searched), class: "destroy text-danger", method: :delete, data: { confirm: '本当に削除しますか？' } %>
+              </strong>
+            <% else %>
+            <strong class="d-block text-gray-dark mx-auto" style="width: 200px;">
+              <%= link_to "詳細", recruitment_path(result_searched), class: "show" %>
+            </strong>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+      <small class="d-block text-right mt-3">
+        <%= paginate @result_searched %>
+      </small>
+    </div>
+    <%= link_to "募集情報を作成する", new_recruitment_path, class: "btn btn-success offset-md-5 col-md-2" %>
+</main>
