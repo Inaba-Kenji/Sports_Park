@@ -80,6 +80,7 @@ gem 'pry-byebug'
 # ページネーション
 gem 'kaminari'
 
+
 #デバック
 gem 'pry-rails'
 
@@ -100,3 +101,9 @@ gem 'geocoder'
 
 # gitにapiがpushされないように
 gem 'dotenv-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
