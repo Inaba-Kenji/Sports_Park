@@ -71,7 +71,6 @@ class RecruitmentsController < ApplicationController
     @recruitments = Recruitment.all.search(params[:search]).page(params[:page]).per(5)
   end
 
-
   private
 
   def recruitment_params

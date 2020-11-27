@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
   #デバイスが利用できるカラムの指定
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email,:postal_code,:address,:age,:gender])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email,:postal_code,:address,:age,:gender, :favorites_sports])
   end
 
   # sign_in後の遷移
