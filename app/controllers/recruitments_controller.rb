@@ -1,4 +1,6 @@
 class RecruitmentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def new
     @recruitment = Recruitment.new
@@ -75,6 +77,11 @@ class RecruitmentsController < ApplicationController
 
   def recruitment_params
     params.require(:recruitment).permit(:title, :event_date, :place, :price, :recruitment_introduction, :place_area, :sports_genre)
+  end
+
+  def correct_user
+      user = Recruitment.find(params[:user_id])
+      redirect_to root_url if current_user != user
   end
 
 
