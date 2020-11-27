@@ -94,3 +94,9 @@ gem 'font-awesome-sass', '~> 5.4.1'
 
 # ページネーション
 gem 'kaminari'
+
+# Google Mapの緯度・経度
+gem 'geocoder'
+
+# gitにapiがpushされないように
+gem 'dotenv-rails'

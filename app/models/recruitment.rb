@@ -12,4 +12,5 @@ class Recruitment < ApplicationRecord
     search ? where('title LIKE ?', "%#{search}%") : all
   end
 
+
 end
