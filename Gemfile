@@ -102,5 +102,11 @@ gem 'geocoder'
 # gitにapiがpushされないように
 gem 'dotenv-rails'
 
+# 本番環境でのMysql導入
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
 
 
