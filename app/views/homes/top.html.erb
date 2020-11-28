@@ -9,8 +9,7 @@
         〜Let's enjoy sports〜
       </h1>
       <div>
-        <%#= video_tag("/videos/top-video.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
-        <video src="<%= asset_path('top-video.mp4') %>" class="video-content" autoplay loop muted ></video>
+        <%= video_tag("top-video.mp4", autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
       </div>
     </div>
     </div>
