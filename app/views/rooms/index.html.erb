@@ -15,11 +15,11 @@
   <tbody>
     <% @anotherEntries.each do |anotherEntry| %>
       <tr>
-        <td><%= attachment_image_tag Message.find_by(id: anotherEntry.room.message_ids.last).user, :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg" %></td>
-        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.name %></td>
-        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.gender %></td>
-        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.age %></td>
-        <td><%= Message.find_by(id: anotherEntry.room.message_ids.last).user.favorites_sports %></td>
+        <td><%= attachment_image_tag User.find_by(id: anotherEntry.user_id), :profile_image, :fill, 50, 50, class: "rounded-circle", fallback: "no-image-icon.jpg" %></td>
+        <td><%= User.find_by(id: anotherEntry.user_id).name %></td>
+        <td><%= User.find_by(id: anotherEntry.user_id).gender %></td>
+        <td><%= User.find_by(id: anotherEntry.user_id).age %></td>
+        <td><%= User.find_by(id: anotherEntry.user_id).favorites_sports %></td>
         <td><%= "#{Message.find_by(id: anotherEntry.room.message_ids.last).content}".truncate(10, separator: /\s/) %></td>
         <td><%= link_to 'チャットへ', room_path(Message.find_by(id: anotherEntry.room.message_ids.last).room_id), class: "fa fa-commenting" %></td>
       </tr>
