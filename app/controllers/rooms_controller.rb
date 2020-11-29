@@ -28,5 +28,4 @@ class RoomsController < ApplicationController
         end
         @anotherEntries = Entry.where(room_id: myRoomIds).where('user_id != ?', current_user.id).page(params[:page]).per(6)
     end
-
 end
