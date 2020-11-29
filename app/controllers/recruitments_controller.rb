@@ -1,6 +1,6 @@
 class RecruitmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: [:destroy, :edit, :update]
+  before_action :correct_user, only: [:destroy,:update]
 
   def new
     @recruitment = Recruitment.new
