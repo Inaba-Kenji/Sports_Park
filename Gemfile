@@ -102,6 +102,16 @@ gem 'geocoder'
 # gitにapiがpushされないように
 gem 'dotenv-rails'
 
+# SNS認証
+gem 'omniauth-rails_csrf_protection'
+
+# Google認証
+gem 'omniauth-google-oauth2'
+
+# facebook
+gem 'omniauth-facebook'
+
+
 # 本番環境でのMysql導入
 gem 'dotenv-rails'
 group :production do
