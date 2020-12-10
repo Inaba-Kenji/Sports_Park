@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'maps/index'
   get 'home/about' => 'homes#about'
+  post 'home/guest_sign_in', to: 'homes#new_guest'
 
   resources :maps, only: [:index]
   resources :relationships, only: [:create, :destroy]

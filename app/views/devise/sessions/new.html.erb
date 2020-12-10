@@ -2,7 +2,7 @@
 <%= form_with model: @user, url: user_session_path, local: true, class: "form-horizontal" do |f| %>
 
   <div class="form-group">
-		<h1 class="col-sm-12 control-label" for="InputEmail"><h1>
+		<label class="col-sm-12 control-label" for="InputEmail"><%= link_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post %></label></%>
 		<div class="col-sm-4">
 		</div>
   </div>
@@ -41,7 +41,7 @@
   </div>
 
   <div class="form-group">
-		<label class="col-sm-2 control-label" for="InputEmail"></label>
+		<label class="col-sm-4 control-label" for="InputEmail"></label>
 		<div class="col-sm-4">
 			<%= render "devise/shared/links" %>
 		</div>
