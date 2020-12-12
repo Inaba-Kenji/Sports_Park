@@ -113,6 +113,7 @@ gem 'omniauth-facebook'
 
 
 # 本番環境でのMysql導入
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
