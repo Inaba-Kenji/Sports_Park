@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
+  resources :notifications, only: [:index] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
   resources :recruitments do
     collection do
       get 'search'

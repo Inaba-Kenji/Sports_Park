@@ -44,6 +44,12 @@
         <%= text_field_tag :search, '' , placeholder: "募集情報のタイトル"	 %>
         <%= submit_tag '検索', name: nil%>
       <% end %>
+      <% if unchecked_notifications.any? %>
+        <i class="fa fa-circle" style="color: gold;"></i>
+      <% end %>
+        <li>
+          <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+        </li>
     <% end %>
 
   </div>

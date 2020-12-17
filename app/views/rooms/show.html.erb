@@ -31,7 +31,7 @@
   <%= f.text_area :content, :placeholder => "メッセージを入力して下さい" , size: "140x5" %>
   <%= f.hidden_field :room_id, :value => @room.id %>
   <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "投稿する", class: "btn btn-warning  offset-md-5 col-md-2" %>
 <% end %>
 
 

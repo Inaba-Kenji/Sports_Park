@@ -4,11 +4,16 @@ class LikesController < ApplicationController
 
   def create
     @like = current_user.likes.build(like_params)
+    @like.save
     @recruitment = @like.recruitment
-    if @like.save
-      respond_to :js
-    end
+    # 通知機能の作成
+    @recruitment.create_notification_by(current_user)
+      respond_to do |format|
+        format.html {redirect_to request.referrer}
+        format.js
+      end
   end
+
 
   def destroy
     @like = Like.find_by(id: params[:id])
@@ -23,6 +28,5 @@ class LikesController < ApplicationController
     def like_params
       params.permit(:recruitment_id)
     end
-
 
 end
