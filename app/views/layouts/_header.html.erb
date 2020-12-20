@@ -22,6 +22,12 @@
         <li class="nav-item active">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link fa fa-sign-out" %>
         </li>
+        <% if unchecked_notifications.any? %>
+          <i class="fa fa-circle"></i>
+        <% end %>
+        <li class="nav-item active">
+          <%= link_to "通知", notifications_path, class: "nav-link fa fa-bell-o" %>
+        </li>
       <% else %>
         <li class="nav-item text-light active">
           <%= link_to "Home", root_path, class: "nav-link fa fa-home " %>
@@ -44,12 +50,6 @@
         <%= text_field_tag :search, '' , placeholder: "募集情報のタイトル"	 %>
         <%= submit_tag '検索', name: nil%>
       <% end %>
-      <% if unchecked_notifications.any? %>
-        <i class="fa fa-circle" style="color: gold;"></i>
-      <% end %>
-        <li>
-          <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
-        </li>
     <% end %>
 
   </div>

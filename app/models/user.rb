@@ -10,15 +10,17 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :likes
-
   has_many :recruitments, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
+  #フォロー機能
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
   has_many :following, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  # 通知機能
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
@@ -89,7 +91,7 @@ class User < ApplicationRecord
    end
 
   # 通知機能メソッド
-   def create_notification_follow!(current_user)
+  def create_notification_follow!(current_user)
     temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
     if temp.blank?
       notification = current_user.active_notifications.new(
@@ -98,6 +100,6 @@ class User < ApplicationRecord
       )
       notification.save if notification.valid?
     end
-   end
+  end
 
 end
